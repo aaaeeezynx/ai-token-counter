@@ -1,0 +1,32 @@
+# Chrome extension build artifacts
+*.crx
+*.pem
+*.zip
+
+# Debug / dev tools
+.debug/
+.debug-profile/
+logo-candidates/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Node
+node_modules/
+
+# Trae AI workspace
+.trae/
+
+# Design library (external reference)
+.design_library/

@@ -1,0 +1,92 @@
+{
+  "manifest_version": 3,
+  "name": "AI 對話 Token 計數器",
+  "version": "2.0.0",
+  "description": "即時顯示 Claude、ChatGPT、Gemini、DeepSeek、Grok、Perplexity、Qwen 對話的 Token 消耗、Context Window 使用率。",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "https://claude.ai/*",
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://gemini.google.com/*",
+    "https://chat.deepseek.com/*",
+    "https://grok.com/*",
+    "https://www.perplexity.ai/*",
+    "https://chat.qwen.ai/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://claude.ai/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://gemini.google.com/*",
+        "https://chat.deepseek.com/*",
+        "https://grok.com/*",
+        "https://www.perplexity.ai/*",
+        "https://chat.qwen.ai/*"
+      ],
+      "js": ["content/inject.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://claude.ai/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://gemini.google.com/*",
+        "https://chat.deepseek.com/*",
+        "https://grok.com/*",
+        "https://www.perplexity.ai/*",
+        "https://chat.qwen.ai/*"
+      ],
+      "js": [
+        "lib/platforms.js",
+        "lib/storage.js",
+        "lib/rateLimit.js",
+        "lib/tokenizer.js",
+        "lib/ui.js",
+        "content/index.js"
+      ],
+      "world": "ISOLATED",
+      "run_at": "document_idle",
+      "css": ["content/styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/tiktoken.wasm", "assets/icons/*"],
+      "matches": [
+        "https://claude.ai/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://gemini.google.com/*",
+        "https://chat.deepseek.com/*",
+        "https://grok.com/*",
+        "https://www.perplexity.ai/*",
+        "https://chat.qwen.ai/*"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "AI Token 計數器",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  },
+  "options_page": "options/options.html"
+}

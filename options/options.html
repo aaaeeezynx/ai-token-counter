@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Token 計數器 — 設定</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <h1>AI Token 計數器 設定</h1>
+
+    <section>
+      <h2>一般</h2>
+      <label class="line">
+        <input type="checkbox" id="enabled" /> 啟用擴充功能
+      </label>
+      <label class="line">
+        <input type="checkbox" id="showSourceBadge" /> 顯示資料來源標記（精準/估算）
+      </label>
+      <label class="line">
+        主題模式：
+        <select id="theme">
+          <option value="auto">自動（偵測頁面/系統）</option>
+          <option value="dark">深色</option>
+          <option value="light">淺色</option>
+        </select>
+      </label>
+    </section>
+
+    <section>
+      <h2>平台啟停</h2>
+      <div id="platformList" class="platform-list"></div>
+    </section>
+
+    <section>
+      <h2>速率限制設定</h2>
+      <p class="hint">各平台方案與自訂限制值。預設值為社群觀測值（僅供參考），可依自身方案調整。訊息數設為 0 表示無限制。</p>
+      <table class="rl-table">
+        <thead>
+          <tr>
+            <th>平台</th>
+            <th>方案</th>
+            <th>視窗（小時）</th>
+            <th>訊息數上限</th>
+          </tr>
+        </thead>
+        <tbody id="rlTbody"></tbody>
+      </table>
+      <div class="rl-actions">
+        <button id="rlReset" class="ghost small">重置為預設值</button>
+        <button id="rlClearEvents" class="ghost small">清除速率限制歷史</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>UI 位置</h2>
+      <button id="resetPos" class="ghost small">重置浮動進度條位置</button>
+    </section>
+
+    <footer class="disclaimer">
+      <p>本擴充功能顯示的上下文長度、Token 使用量與速率限制等數值，皆為基於攔截估算或社群觀測所得之參考值，僅供進度追蹤與使用情境評估之用。實際 Token 計算方式、上下文視窗上限、模型版本差異、系統提示詞占用，以及對話與速率限制條件，皆以各模型廠商（如 Anthropic、OpenAI、Google、DeepSeek、xAI、Perplexity、阿里巴巴等）官方實時計算與公告為準。本工具不保證數值之絕對準確性，亦不代表任何廠商之官方立場。</p>
+    </footer>
+
+    <div class="actions">
+      <span id="saved" class="saved" hidden>已儲存</span>
+    </div>
+  </body>
+  <script src="options.js"></script>
+</html>

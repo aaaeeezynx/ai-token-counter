@@ -1,0 +1,8 @@
+/* content/styles.css
+   浮動 UI 採 Shadow DOM（lib/ui.js）自帶樣式，此檔僅作 host 容器的外層保護，
+   確保注入元素不受頁面 CSS 影響。 */
+#aitc-host {
+  all: initial;
+  position: fixed;
+  z-index: 2147483647;
+}

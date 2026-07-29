@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Token 計數器</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="header">
+      <span class="title">AI Token 計數器</span>
+      <div class="header-actions">
+        <label class="theme-switch" title="切換淺色/深色">
+          <input type="checkbox" id="themeToggle" />
+          <span class="theme-slider"></span>
+        </label>
+        <label class="switch" title="啟用/停用">
+          <input type="checkbox" id="enabledToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div id="statusBox" class="status">
+      <div class="row">
+        <span class="k">平台</span><span class="v" id="vPlatform">—</span>
+      </div>
+      <div class="row">
+        <span class="k">已用 / 上限</span
+        ><span class="v" id="vUsage">— / —</span>
+      </div>
+      <div class="row">
+        <span class="k">使用率</span><span class="v" id="vPct">—</span>
+      </div>
+      <div class="row">
+        <span class="k">資料來源</span><span class="v" id="vSource">—</span>
+      </div>
+    </div>
+
+    <div id="noAi" class="no-ai" hidden>
+      目前分頁非支援的 AI 平台。<br />支援：<span id="vSupported">—</span>。
+    </div>
+
+    <div class="actions">
+      <button id="btnReset">重置當前對話</button>
+      <button id="btnOptions" class="ghost">設定</button>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

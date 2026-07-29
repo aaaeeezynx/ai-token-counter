@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Noto Sans JP', -apple-system, "Segoe UI", "Microsoft JhengHei", sans-serif;
+  /* 深色（預設）— Nippon Colors: 黒橡/胡粉/利休鼠 */
+  --bg: #0B1013;
+  --fg: #FFFFFB;
+  --status-bg: rgba(255, 255, 251, 0.06);
+  --no-ai-bg: rgba(248, 181, 0, 0.12);
+  --no-ai-fg: #F7D94C;
+  --ghost-bg: rgba(255, 255, 251, 0.12);
+  --slider-bg: #5A5C5A;
+}
+/* 手動淺色 — Nippon Colors: 白練/鳥之子/肥後煤竹 */
+body.theme-light {
+  --bg: #FCFAF2;
+  --fg: #1A1715;
+  --status-bg: rgba(26, 23, 21, 0.05);
+  --no-ai-bg: rgba(248, 181, 0, 0.12);
+  --no-ai-fg: #8D742A;
+  --ghost-bg: #DAC9A6;
+  --slider-bg: #DAC9A6;
+}
+/* 自動模式：系統淺色（theme-dark 不套用，強制深色） */
+@media (prefers-color-scheme: light) {
+  body:not(.theme-dark) {
+    --bg: #FCFAF2;
+    --fg: #1A1715;
+    --status-bg: rgba(26, 23, 21, 0.05);
+    --no-ai-bg: rgba(248, 181, 0, 0.12);
+    --no-ai-fg: #8D742A;
+    --ghost-bg: #DAC9A6;
+    --slider-bg: #DAC9A6;
+  }
+}
+body {
+  width: 300px;
+  margin: 0;
+  padding: 14px;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 13px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.title {
+  font-weight: 700;
+  font-size: 14px;
+}
+/* 主題切換開關（滑動式太陽/月亮）— checked=深色(月亮)、unchecked=淺色(太陽) */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.theme-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: var(--slider-bg);
+  border-radius: 24px;
+  transition: background 0.3s;
+}
+.theme-slider:before {
+  content: "☀";
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background: #F8B500;
+  color: #FFFFFB;
+  border-radius: 50%;
+  font-size: 11px;
+  line-height: 1;
+  transition: transform 0.3s, background 0.3s, content 0.3s;
+  z-index: 1;
+}
+.theme-switch input:checked + .theme-slider {
+  background: var(--slider-bg);
+}
+.theme-switch input:checked + .theme-slider:before {
+  content: "☾";
+  transform: translateX(20px);
+  background: #1E50A2;
+}
+.status {
+  background: var(--status-bg);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+}
+.k {
+  opacity: 0.75;
+}
+.v {
+  font-weight: 600;
+}
+.no-ai {
+  background: var(--no-ai-bg);
+  color: var(--no-ai-fg);
+  border-radius: 8px;
+  padding: 10px 12px;
+  line-height: 1.8;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+button {
+  flex: 1;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
+  background: #1E50A2;
+  color: #FFFFFB;
+  font-size: 12px;
+  cursor: pointer;
+}
+button.ghost {
+  background: #DAC9A6;
+  color: #1A1715;
+}
+button.danger {
+  background: #D0104C;
+}
+button:hover {
+  filter: brightness(1.1);
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 22px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: var(--slider-bg);
+  border-radius: 22px;
+  transition: 0.2s;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  top: 3px;
+  background: #FFFFFB;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+input:checked + .slider {
+  background: #007B43;
+}
+input:checked + .slider:before {
+  transform: translateX(16px);
+}

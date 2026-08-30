@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AI 對話 Token 計數器",
-  "version": "2.0.0",
+  "version": "1.1.0",
   "description": "即時顯示 Claude、ChatGPT、Gemini、DeepSeek、Grok、Perplexity、Qwen 對話的 Token 消耗、Context Window 使用率。",
   "permissions": ["storage", "activeTab"],
   "host_permissions": [

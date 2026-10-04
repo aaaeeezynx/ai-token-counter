@@ -6,8 +6,43 @@
 
 ---
 
+## 介面預覽
+
+### 浮窗展開模式
+
+<p align="center">
+  <img src="assets/screenshots/widget-expanded.png" width="380" alt="浮窗展開模式：速率限制與 Context Window 雙進度條">
+</p>
+
+<p align="center">
+  <sub>上方為速率限制區塊（已用 X/Y 則、重置倒數），下方為 Context Window 使用率與 input／output 明細。</sub>
+</p>
+
+### 各平台實機畫面
+
+<p align="center">
+  <img src="assets/screenshots/chatgpt.png" width="800" alt="ChatGPT 頁面浮窗（估算模式）">
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/claude.png" width="800" alt="Claude 頁面浮窗（精準模式）">
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/gemini.png" width="800" alt="Gemini 頁面浮窗">
+</p>
+
+### 設定頁
+
+<p align="center">
+  <img src="assets/screenshots/options.png" width="800" alt="設定頁：一般設定、平台啟停、速率限制設定、UI 位置">
+</p>
+
+---
+
 ## 目錄
 
+- [介面預覽](#介面預覽)
 - [核心功能](#核心功能)
 - [與其他 Token Counter 擴充功能的差異](#與其他-token-counter-擴充功能的差異)
 - [安裝方式](#安裝方式)
